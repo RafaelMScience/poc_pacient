@@ -64,11 +64,13 @@
                 tools:visibility="visible">
 
                 <RadioButton
+                    android:id="@+id/radio_dor_sim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sim" />
 
                 <RadioButton
+                    android:id="@+id/radio_dor_nao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nao" />

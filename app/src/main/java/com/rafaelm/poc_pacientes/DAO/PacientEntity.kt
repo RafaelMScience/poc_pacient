@@ -6,9 +6,9 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class PacientEntity(
-    @PrimaryKey(autoGenerate = false) val idPacient: Int? = 0,
+    @PrimaryKey(autoGenerate = true) val idPacient: Int? = 0,
     @ColumnInfo(name = "name") val namePacient: String?,
-    @ColumnInfo(name="cpf") val cpfPacient: Int?,
+    @ColumnInfo(name="cpf") val cpfPacient: String?,
     @ColumnInfo(name="dores") val doresPacient: String?,
     @ColumnInfo(name="nivelDor") val nivelDor: String?,
     @ColumnInfo(name="descon") val desconforto: String?,

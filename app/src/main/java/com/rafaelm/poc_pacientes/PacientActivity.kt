@@ -1,14 +1,15 @@
 package com.rafaelm.poc_pacientes
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.room.Room
+import com.rafaelm.poc_pacientes.DAO.Database
+import com.rafaelm.poc_pacientes.DAO.PacientEntity
 import com.rafaelm.poc_pacientes.databinding.ActivityPacientBinding
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_pacient.*
 
 class PacientActivity : AppCompatActivity() {
@@ -19,11 +20,39 @@ class PacientActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pacient)
 
-        val binding: ActivityPacientBinding = DataBindingUtil.setContentView(this, R.layout.activity_pacient)
+        val binding: ActivityPacientBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_pacient)
 
-        pacientViewModel = ViewModelProvider(this, PacientViewModel.PacientViewModelFactory(PacientRepository())).get(PacientViewModel::class.java)
+        pacientViewModel = ViewModelProvider(
+            this,
+            PacientViewModel.PacientViewModelFactory(PacientRepository())
+        ).get(PacientViewModel::class.java)
 
         edt_cpf.addTextChangedListener(Mask.mask("###.###.###-##", edt_cpf))
+
+        val room =
+            Room.databaseBuilder(this, Database::class.java, "meu banco").allowMainThreadQueries()
+                .build()
+
+        Thread(Runnable {
+            val pacient = PacientEntity(
+                idPacient = 0,
+                cpfPacient = edt_cpf.text.toString(),
+                namePacient = edt_name.text.toString(),
+                nivelDor = edt_intens.text.toString(),
+                cirurgia = "",
+                corpo = "",
+                desconforto = "",
+                dorCirurgia = "",
+                doresPacient = "",
+                periodoCirurgia = "",
+                tipoCirurgia = ""
+            )
+            room.pacientDAO().insertAll(pacient)
+        }).start()
+
+//        val radio_dor: Int = group_dor!!.checkedRadioButtonId
+//        Toast.makeText(baseContext, ""+radio_dor, Toast.LENGTH_SHORT).show()
 
         //para teste do app
         edt_cpf.setOnClickListener {
