@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rafaelm.poc_pacientes.databinding.ActivityPacientBinding
 import kotlinx.android.synthetic.main.activity_main.*
@@ -12,11 +13,15 @@ import kotlinx.android.synthetic.main.activity_pacient.*
 
 class PacientActivity : AppCompatActivity() {
 
+    private lateinit var pacientViewModel: PacientViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pacient)
 
         val binding: ActivityPacientBinding = DataBindingUtil.setContentView(this, R.layout.activity_pacient)
+
+        pacientViewModel = ViewModelProvider(this, PacientViewModel.PacientViewModelFactory(PacientRepository())).get(PacientViewModel::class.java)
 
         edt_cpf.addTextChangedListener(Mask.mask("###.###.###-##", edt_cpf))
 

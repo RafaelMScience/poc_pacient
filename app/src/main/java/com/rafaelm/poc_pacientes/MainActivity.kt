@@ -2,7 +2,6 @@ package com.rafaelm.poc_pacientes
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -14,6 +13,13 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity(), MainNavigator {
+
+//    inner class MainHandler{
+//        fun btn_add(){
+//            val i = Intent(this@MainActivity, PacientActivity::class.java)
+//            startActivity(i)
+//        }
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,20 +34,22 @@ class MainActivity : AppCompatActivity(), MainNavigator {
             binding.recyclerView.adapter = ListAdapter(user, viewModel)
         })
 
-        //proxima tela
-//        btn_add.setOnClickListener {
-//            val i = Intent(this, PacientActivity::class.java)
-//            startActivity(i)
-//        }
+
+//        proxima tela
+        btn_add.setOnClickListener {
+            val i = Intent(this, PacientActivity::class.java)
+            startActivity(i)
+        }
 
     }
 
     override fun onItemClick(pacientDate: PacientDate) {
-        Toast.makeText(this,"funcoina", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this,"id: "+pacientDate.id, Toast.LENGTH_SHORT).show()
+        val bundle = Bundle()
+        bundle.putInt("id",pacientDate.id)
+        val i = Intent(this, InformationsActivity::class.java)
+        i.putExtra("id",bundle)
+        startActivity(i)
+        onStop()
     }
-
-//    override fun btn_add(view: View) {
-//        val i = Intent(this, PacientActivity::class.java)
-//            startActivity(i)
-//    }
 }

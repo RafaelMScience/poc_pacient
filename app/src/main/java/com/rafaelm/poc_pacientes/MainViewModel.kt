@@ -34,7 +34,6 @@ class MainViewModel: ViewModel() {
                 "estetica",
                 "nao"
             )
-
         )
 
         this.user.value = users
