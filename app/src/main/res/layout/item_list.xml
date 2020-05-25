@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/name"
             android:layout_centerHorizontal="true"
-            android:text="@{pacient.cpf}" />
+            android:text="@{String.valueOf(pacient.cpf)}" />
 
 
     </RelativeLayout>

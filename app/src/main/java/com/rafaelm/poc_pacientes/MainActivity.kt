@@ -2,6 +2,7 @@ package com.rafaelm.poc_pacientes
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -28,14 +29,19 @@ class MainActivity : AppCompatActivity(), MainNavigator {
         })
 
         //proxima tela
-        btn_add.setOnClickListener {
-            val i = Intent(this, PacientActivity::class.java)
-            startActivity(i)
-        }
+//        btn_add.setOnClickListener {
+//            val i = Intent(this, PacientActivity::class.java)
+//            startActivity(i)
+//        }
 
     }
 
     override fun onItemClick(pacientDate: PacientDate) {
         Toast.makeText(this,"funcoina", Toast.LENGTH_SHORT).show()
     }
+
+//    override fun btn_add(view: View) {
+//        val i = Intent(this, PacientActivity::class.java)
+//            startActivity(i)
+//    }
 }

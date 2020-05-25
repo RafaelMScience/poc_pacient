@@ -9,24 +9,38 @@ class MainViewModel: ViewModel() {
     private val user = MutableLiveData<List<PacientDate>>()
     private lateinit var navigator: MainNavigator
 
-    fun setNavigator(navigator: MainNavigator){
+    fun setNavigator(navigator: MainNavigator) {
         this.navigator = navigator
     }
 
-    fun getUser() : MutableLiveData<List<PacientDate>>{
+    fun getUser(): MutableLiveData<List<PacientDate>> {
         setUser()
         return user
     }
 
-    private fun setUser(){
+    private fun setUser() {
         val users: MutableList<PacientDate> = ArrayList()
         users.add(
-            PacientDate(1, 12345,"joao","costa","20","sim","costa","sim","4 meses","estetica","nao")
+            PacientDate(
+                1,
+                12345,
+                "joao",
+                "costa",
+                "20",
+                "sim",
+                "costa",
+                "sim",
+                "4 meses",
+                "estetica",
+                "nao"
+            )
 
         )
+
+        this.user.value = users
     }
 
-    fun itemClick(user: PacientDate){
+    fun itemClick(user: PacientDate) {
         navigator.onItemClick(user)
     }
 }
