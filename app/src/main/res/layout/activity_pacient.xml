@@ -1,367 +1,359 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-    <data>
-        <variable
-            name="pacient"
-            type="com.rafaelm.poc_pacientes.PacientDate" />
-        <variable
-            name="viewModel"
-            type="com.rafaelm.poc_pacientes.MainViewModel" />
-    </data>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:context=".PacientActivity">
 
-    <LinearLayout
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:paddingBottom="24dp"
-        android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/edt_cpf"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="CPF"
-            android:onClick="@{() -> viewModel.onClick(pacient)}"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/edt_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Name"
-            android:visibility="gone"
-            tools:visibility="visible"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_cpf" />
-
-        <TextView
-            android:id="@+id/txt_dado1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Voce sente dor?"
-            android:textAlignment="center"
-            android:visibility="gone"
-            tools:visibility="visible"
-            android:textColor="@color/colorBlack"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_name" />
-
-        <RadioGroup
-            android:id="@+id/group_dor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:visibility="gone"
-            tools:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="114dp">
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sim" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nao" />
-        </RadioGroup>
-
-        <EditText
-            android:id="@+id/edt_intens"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Qual a Intensidade 1 a 10"
-            android:inputType="number" />
-
-
-        <TextView
-            android:id="@+id/txt_dado2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sente algum desconforto"
-            android:textAlignment="center"
-            android:visibility="gone"
-            tools:visibility="visible"
-            android:textColor="@color/colorBlack"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_name" />
-
-
-        <RadioGroup
-            android:id="@+id/group_desconforto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:visibility="gone"
-            tools:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sim" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nao" />
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/txt_dado3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Em qual parte do corpo?"
-            android:textAlignment="center"
-            android:textColor="@color/colorBlack"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_name" />
-
+        android:orientation="vertical"
+        tools:context=".PacientActivity">
 
         <LinearLayout
-            android:id="@+id/layout_corpo"
-            android:layout_width="match_parent"
-            android:visibility="gone"
-            tools:visibility="visible"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <GridLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:columnCount="3">
-
-                <CheckBox
-                    android:id="@+id/check_cabeca"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cabeça" />
-
-                <CheckBox
-                    android:id="@+id/check_braços"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Braços" />
-
-                <CheckBox
-                    android:id="@+id/check_torax"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tórax" />
-
-                <CheckBox
-                    android:id="@+id/check_barriga"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Barriga" />
-
-                <CheckBox
-                    android:id="@+id/check_pernas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pernas" />
-
-                <CheckBox
-                    android:id="@+id/check_costas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Costas" />
-            </GridLayout>
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/txt_dado4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Passou por alguma cirurgia?"
-            android:textAlignment="center"
-            android:textColor="@color/colorBlack"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_name" />
-
-
-        <RadioGroup
-            android:id="@+id/group_cirurgia"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:visibility="gone"
-            tools:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sim" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nao" />
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/txt_dado5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Quantos tempo?"
-            android:textAlignment="center"
-            android:textColor="@color/colorBlack"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_name" />
-
-
-        <RadioGroup
-            android:id="@+id/group_tempo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            tools:visibility="visible"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
             android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            android:paddingBottom="24dp">
 
-            <RadioButton
+            <EditText
+                android:id="@+id/edt_cpf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="CPF"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/edt_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_cpf"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/txt_dado1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Voce sente dor?"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_name"
+                tools:visibility="visible" />
+
+            <RadioGroup
+                android:id="@+id/group_dor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="114dp"
+                tools:visibility="visible">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sim" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nao" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/edt_intens"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Qual a Intensidade 1 a 10"
+                android:inputType="number" />
+
+
+            <TextView
+                android:id="@+id/txt_dado2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sente algum desconforto"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_name"
+                tools:visibility="visible" />
+
+
+            <RadioGroup
+                android:id="@+id/group_desconforto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:visibility="visible">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sim" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nao" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/txt_dado3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="1 a 2 meses" />
+                android:text="Em qual parte do corpo?"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_name" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:id="@+id/layout_corpo"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="3 a 6 meses" />
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible">
 
-            <RadioButton
-                android:layout_width="wrap_content"
+                <GridLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:columnCount="3">
+
+                    <CheckBox
+                        android:id="@+id/check_cabeca"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cabeça" />
+
+                    <CheckBox
+                        android:id="@+id/check_braços"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Braços" />
+
+                    <CheckBox
+                        android:id="@+id/check_torax"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tórax" />
+
+                    <CheckBox
+                        android:id="@+id/check_barriga"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Barriga" />
+
+                    <CheckBox
+                        android:id="@+id/check_pernas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pernas" />
+
+                    <CheckBox
+                        android:id="@+id/check_costas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Costas" />
+                </GridLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txt_dado4"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="1 a 2 meses" />
+                android:text="Passou por alguma cirurgia?"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_name" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
+
+            <RadioGroup
+                android:id="@+id/group_cirurgia"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="3 a 6 meses" />
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:visibility="visible">
 
-            <RadioButton
-                android:layout_width="wrap_content"
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sim" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nao" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/txt_dado5"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="6 a 12 meses" />
+                android:text="Quantos tempo?"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_name" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
+
+            <RadioGroup
+                android:id="@+id/group_tempo"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="mais 1 ano" />
-        </RadioGroup>
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:visibility="visible">
 
-        <TextView
-            android:id="@+id/txt_dado6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Que tipo de cirurgia?"
-            android:visibility="gone"
-            tools:visibility="visible"
-            android:textAlignment="center"
-            android:textColor="@color/colorBlack"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_name" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="1 a 2 meses" />
 
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="3 a 6 meses" />
 
-        <RadioGroup
-            android:id="@+id/group_tipo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            tools:visibility="visible"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="1 a 2 meses" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="3 a 6 meses" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="6 a 12 meses" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="mais 1 ano" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/txt_dado6"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Estetica" />
+                android:text="Que tipo de cirurgia?"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_name"
+                tools:visibility="visible" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
+
+            <RadioGroup
+                android:id="@+id/group_tipo"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Saude" />
-        </RadioGroup>
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:visibility="visible">
 
-        <TextView
-            android:id="@+id/txt_dado7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Voce sentiu alguma dor apos a cirurgia?"
-            android:textAlignment="center"
-            android:visibility="gone"
-            tools:visibility="visible"
-            android:textColor="@color/colorBlack"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_name" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Estetica" />
 
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Saude" />
+            </RadioGroup>
 
-        <RadioGroup
-            android:id="@+id/group_fezcirurgia"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:visibility="gone"
-            tools:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <RadioButton
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/txt_dado7"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Sim" />
+                android:text="Voce sentiu alguma dor apos a cirurgia?"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edt_name"
+                tools:visibility="visible" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
+
+            <RadioGroup
+                android:id="@+id/group_fezcirurgia"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Nao" />
-        </RadioGroup>
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:visibility="visible">
 
-        <Button
-            android:id="@+id/btn_save"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            tools:visibility="visible"
-            android:text="Salvar"
-            android:layout_gravity="center" />
-    </LinearLayout>
-</ScrollView>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Sim" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Nao" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Salvar"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </LinearLayout>
+    </ScrollView>
 </layout>
